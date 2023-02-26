@@ -72,8 +72,10 @@ function handleLose() {
             subtitle.textContent = `WOW! TEACH ME MASTER! You passed ${getPassedPipesCount()} pipes`
         } else if (getPassedPipesCount() >= 10) {
             subtitle.textContent = `WOW! Nice! You passed ${getPassedPipesCount()} pipes`
-        } else {
+        } else if (getPassedPipesCount() >= 5) {
             subtitle.textContent = `Do better next time! You passed ${getPassedPipesCount()} pipes`
+        } else {
+            subtitle.textContent = `LOOOOSER! You passed ${getPassedPipesCount()} pipes`
         };
         
        
@@ -84,7 +86,7 @@ function handleLose() {
             highScore = currentScore
             localStorage.setItem("highScore", highScore)
             // add new record pop-up
-            const newRecordPopup = document.createElement("div")
+            const newRecordPopup = document.createElement("di v")
             newRecordPopup.classList.add("popup")
             newRecordPopup.textContent = "New Record!"
             document.body.appendChild(newRecordPopup)
@@ -95,7 +97,7 @@ function handleLose() {
         document.getElementById("high-score-value").textContent = highScore
         
         document.addEventListener("keypress", handleStart, { once: true })
-    }, 500)
+    }, 400)
 }
 
 
