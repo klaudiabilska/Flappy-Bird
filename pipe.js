@@ -1,4 +1,4 @@
-const HOLE_HEIGHT  = 250
+const HOLE_HEIGHT  = 290
 const PIPE_WIDTH  = 120
 const PIPE_INTERVAL = 1500
 const PIPE_SPEED = .75

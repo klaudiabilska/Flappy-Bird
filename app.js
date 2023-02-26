@@ -19,6 +19,7 @@ function updateLoop(time) {
     if (checkLose()) return handleLose()
     lastTime = time
     window.requestAnimationFrame(updateLoop)
+    document.getElementById("current-score-value").textContent = getPassedPipesCount()
 
 }
 
@@ -46,18 +47,56 @@ function handleStart () {
     setupPipes()
     lastTime = null
     window.requestAnimationFrame(updateLoop)
+    const highScore = localStorage.getItem("highScore") || 0;
+document.getElementById("high-score-value").textContent = highScore;
+    
+const birdElem = document.querySelector('[data-bird]')
+    birdElem.setAttribute('src', './images/birddown.png')
+
+
 
 
 }
 
 
 
-//stop game
+
 function handleLose() {
+    const birdElem = document.querySelector('[data-bird]')
+    birdElem.setAttribute('src', './images/birddead.png')
+    
     setTimeout(() => {
-    title.classList.remove("hide")
-    subtitle.classList.remove("hide")
-    subtitle.textContent = `${getPassedPipesCount()} Pipes`
-    document.addEventListener("keypress", handleStart, { once: true})
-    }, 100)
+        title.classList.remove("hide")
+        subtitle.classList.remove("hide")
+        if (getPassedPipesCount() >= 25) {
+            subtitle.textContent = `WOW! TEACH ME MASTER! You passed ${getPassedPipesCount()} pipes`
+        } else if (getPassedPipesCount() >= 10) {
+            subtitle.textContent = `WOW! Nice! You passed ${getPassedPipesCount()} pipes`
+        } else {
+            subtitle.textContent = `Do better next time! You passed ${getPassedPipesCount()} pipes`
+        };
+        
+       
+        // update high score
+        const currentScore = getPassedPipesCount()
+        let highScore = localStorage.getItem("highScore")
+        if (highScore == null || currentScore > highScore) {
+            highScore = currentScore
+            localStorage.setItem("highScore", highScore)
+            // add new record pop-up
+            const newRecordPopup = document.createElement("div")
+            newRecordPopup.classList.add("popup")
+            newRecordPopup.textContent = "New Record!"
+            document.body.appendChild(newRecordPopup)
+            setTimeout(() => {
+                newRecordPopup.remove()
+            }, 2000)
+        }
+        document.getElementById("high-score-value").textContent = highScore
+        
+        document.addEventListener("keypress", handleStart, { once: true })
+    }, 500)
 }
+
+
+

@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="app.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Flappy Bird</title>
+
+
 </head>
 <body>
     <h1 class="title" data-title>
-        Press Any key to start
-        <small data-subtitle class="subtitle hide"></small>
+        Press space <br>and enjoy!
+        <small data-subtitle class="subtitle hide"></small>      
     </h1>
-    <div data-bird class="bird"></div>
+    <div class="scores">
+        <div id="high-score">High score:  <span id="high-score-value">0</span></div>
+    <div class="current-store">Passed: <span id="current-score-value">0</span></div>
+    </div>
+    
+    <img src="./images/birddown.png" alt="bird-img" class="bird" id="bird1" data-bird>
+
 </body>
 </html>
