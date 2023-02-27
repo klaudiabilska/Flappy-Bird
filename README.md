@@ -15,6 +15,7 @@
 
 ### I am proud of 
 
+- user feedback based on score:
 ```js
  if (getPassedPipesCount() >= 25) {
             subtitle.textContent = `WOW! TEACH ME MASTER! You passed ${getPassedPipesCount()} pipes`
@@ -26,6 +27,20 @@
             subtitle.textContent = `LOOOOSER! You passed ${getPassedPipesCount()} pipes`
         };
 ```
+- bird animation:
+```js
+    function handleLose() {
+        const birdElem = document.querySelector('[data-bird]')
+        birdElem.setAttribute('src', './images/birddead.png')
+        ...
+        ...
+        ...
+    function handleStart () {
+        ...
+        document.getElementById("high-score-value").textContent = highScore;
+        const birdElem = document.querySelector('[data-bird]')
+        birdElem.setAttribute('src', './images/birddown.png')
+  ```
 
 ### Useful resources
 
