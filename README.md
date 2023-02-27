@@ -5,7 +5,7 @@
 
 ### Links
 
-- URL: [Game](https://flappybirdbilska.netlify.app/)
+- [Game link](https://flappybirdbilska.netlify.app/)
 
 ### Built with
 
